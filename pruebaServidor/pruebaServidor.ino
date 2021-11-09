@@ -40,6 +40,7 @@ void loop() {
 
   String respuesta=http.getString();
 
+  Serial.println(postData);
   Serial.println(httpCode);
   Serial.println(respuesta);
 
