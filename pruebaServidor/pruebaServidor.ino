@@ -10,7 +10,7 @@ const char* password = "ibbNfwa9Etppt";
 String url="http://192.168.3.42./actividad6/recibe.php";
 
 String id="tarjeta1";
-int valSensor=0;
+int valorSensor=0;
 int ledEstado=0;
 
 WiFiClient wifiClient;
@@ -33,9 +33,9 @@ void loop() {
   http.begin(wifiClient,url);
   http.addHeader("Content-Type","application/x-www-forum-urlencoded");
 
-  valSensor=random(0,60);
+  valorSensor=random(0,60);
   ledEstado=random(0,1);
-  String postData="id=tarjeta1&valorSensor=10&ledEstado=0";
+  String postData="id="+id+"&valorSensor="+String(valorSensor)+"&ledEstado="+String(ledEstado);
   int httpCode=http.POST(postData);
 
   String respuesta=http.getString();
@@ -46,8 +46,8 @@ void loop() {
 
   http.end();
   delay(500);  
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(1000);                       // wait for a second
+  digitalWrite(LED_BUILTIN, HIGH);   
+  delay(500);                       
 
   
   
