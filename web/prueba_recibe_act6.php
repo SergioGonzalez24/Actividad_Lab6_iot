@@ -1,6 +1,6 @@
 <?php
 
-    require_once('conexion.php');
+    require_once('serverConexion.php');
 
     $device = $_POST['dispositivo'];
     $val = $_POST['valSensor'];
@@ -27,7 +27,8 @@
         echo "{Dispositivo: ".$device.", Fotoresistencia: ".$val.", Led: ".$led."}";
 
     } else {
-        echo "*** TARJETA INEXISTENTE *** <BR>";
+        echo $device;
+        //echo "*** TARJETA INEXISTENTE *** <BR>";
     }
 
 

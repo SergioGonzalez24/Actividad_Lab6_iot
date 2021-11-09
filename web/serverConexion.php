@@ -1,9 +1,9 @@
 <?php
 
 class conexion {
-    const user='';
-    const password='';
-    const database='';
+    const user='id17889621_admin';
+    const password='^K1uZPo]OHt|cNi=';
+    const database='id17889621_servidoriot';
     const server='localhost';
 
 
