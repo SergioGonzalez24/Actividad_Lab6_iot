@@ -35,7 +35,7 @@ void loop() {
 
   valSensor=random(0,60);
   ledEstado=random(0,1);
-  String postData="id="+id+"&valor="+String(valSensor)+"&led="+String(ledEstado);
+  String postData="id=tarjeta1&valorSensor=10&ledEstado=0";
   int httpCode=http.POST(postData);
 
   String respuesta=http.getString();
