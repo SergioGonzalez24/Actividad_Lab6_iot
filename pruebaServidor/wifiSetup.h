@@ -2,8 +2,8 @@
 
 void wifiSetup() {
   // Sustituir con datos de red a conectar
-  const char* ssid     = "LaRataPelona";
-  const char* password = "ibbNfwa9Etppt";
+  const char* ssid     = "";
+  const char* password = "";
   byte cont = 0;
   byte max_intentos = 50;
 

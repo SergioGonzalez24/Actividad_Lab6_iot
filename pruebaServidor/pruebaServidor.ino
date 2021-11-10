@@ -3,7 +3,8 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266HTTPClient.h>
 
-String url="http://192.168.3.42/actividad6/recibe.php";
+//llenar con url de base de datos local
+String url="";
 
 String id="tarjeta1";
 int valorSensor=0;
