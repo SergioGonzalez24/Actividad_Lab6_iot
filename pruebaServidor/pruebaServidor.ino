@@ -1,55 +1,56 @@
-#include <ESP8266WiFi.h>
+#include "wifiSetup.h"
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266HTTPClient.h>
 
-// Sustituir con datos de red a conectar
-const char* ssid     = "LaRataPelona";
-const char* password = "ibbNfwa9Etppt";
-
-String url="http://192.168.3.42./actividad6/recibe.php";
+String url="http://192.168.3.42/actividad6/recibe.php";
 
 String id="tarjeta1";
 int valorSensor=0;
 int ledEstado=0;
 
 WiFiClient wifiClient;
+HTTPClient http;
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.println("\n");
-
-  WiFi.begin(ssid, password);
+  wifiSetup();
   
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(LED_BUILTIN, LOW);
-  
-  HTTPClient http;
-  http.begin(wifiClient,url);
-  http.addHeader("Content-Type","application/x-www-forum-urlencoded");
 
   valorSensor=random(0,60);
-  ledEstado=random(0,1);
+  int led=random(0,2);
+  digitalWrite(LED_BUILTIN, led);
+
+  //Se invierten los valores para encender el led del NODE MCU ESP8266
+  if(led==0) {
+    ledEstado=1; 
+  } else {
+    ledEstado=0;
+  }
+  
+  
+  http.begin(wifiClient,url);
+  http.addHeader("Content-Type","application/x-www-form-urlencoded");
+
+  valorSensor=random(0,60);
+
   String postData="id="+id+"&valorSensor="+String(valorSensor)+"&ledEstado="+String(ledEstado);
   int httpCode=http.POST(postData);
 
   String respuesta=http.getString();
 
-  Serial.println(postData);
+  //Serial.println(postData);
   Serial.println(httpCode);
   Serial.println(respuesta);
-
   http.end();
-  delay(500);  
-  digitalWrite(LED_BUILTIN, HIGH);   
-  delay(500);                       
-
-  
-  
+  delay(5000);  
+ 
   
 }
