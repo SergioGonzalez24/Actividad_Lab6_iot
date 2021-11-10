@@ -25,8 +25,8 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  valorSensor=random(0,60);
-  int led=random(0,2);
+  valorSensor=analogRead(A0);
+  int led=valorSensor;
   digitalWrite(LED_BUILTIN, led);
 
   //Se invierten los valores para encender el led del NODE MCU ESP8266
@@ -40,7 +40,6 @@ void loop() {
   http.begin(wifiClient,url);
   http.addHeader("Content-Type","application/x-www-form-urlencoded");
 
-  valorSensor=random(0,60);
 
   String postData="id="+id+"&valorSensor="+String(valorSensor)+"&ledEstado="+String(ledEstado);
   int httpCode=http.POST(postData);
