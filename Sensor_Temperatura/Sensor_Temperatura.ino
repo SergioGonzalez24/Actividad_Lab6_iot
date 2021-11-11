@@ -2,12 +2,12 @@
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266HTTPClient.h>
-
+#include <DHT.h>
 //llenar con url de base de datos local
-String url="";
+String url="http://localhost/Actividad6/recibe.php?";
 
 String id="tarjeta1";
-int valorSensor=0;
+DHT dht(D3, DHT11);
 int ledEstado=0;
 
 WiFiClient wifiClient;
@@ -25,8 +25,8 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-  valorSensor = random(0,60);
-  int led = random(0,2);
+  int valorSensor=dht.readTemperature();
+  int led=random(0,2);
   digitalWrite(LED_BUILTIN, led);
 
   //Se invierten los valores para encender el led del NODE MCU ESP8266
