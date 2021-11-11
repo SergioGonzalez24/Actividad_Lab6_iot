@@ -15,7 +15,7 @@ WiFiClient wifiClient;
 HTTPClient http;
 
 void setup() {
-  // put your setup code here, to run once:
+
   Serial.begin(115200);
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.println("\n");
@@ -24,9 +24,7 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
 
-  valorSensor = random(0,60);
   int led = random(0,2);
   digitalWrite(LED_BUILTIN, led);
 
@@ -37,8 +35,20 @@ void loop() {
     ledEstado=0;
   }
 
-//FALTA INSERTAR CODIGO DE SENSORES
-valorSensor=valFotores();
+//CODIGO SENSORES
+
+/*¿Que sensor se desea usar?
+*res = 1 --> para utilizar fotoresistencia
+*res = 2 --> para utilizar el sensor de humedad
+*/
+int res=1;
+
+if(res==1) {
+	valorSensor=valFotores();
+}
+else if(res==2) {
+	valorSensor=valHumedad();
+}
   
   
   http.begin(wifiClient,url);

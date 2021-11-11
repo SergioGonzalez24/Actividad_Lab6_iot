@@ -1,8 +1,12 @@
+#include <DHT.h>
+
 int valFotores() {
-	int V = analogRead(LDR);
-	int iluminacion = ((long)V*A*10)/((long)B*Rc*(1024-V));
-	return iluminacion;
+	int valor=analogRead(A0);
+	return valor;
 }
 
 float valHumendad() {
+	DHT dht (D3,DHT11);
+	float valor=dht.readTemperature();
+	return valor;
 }
