@@ -1,4 +1,5 @@
 #include "wifiSetup.h"
+#include "sensores.h"
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266HTTPClient.h>
@@ -35,6 +36,9 @@ void loop() {
   } else {
     ledEstado=0;
   }
+
+//FALTA INSERTAR CODIGO DE SENSORES
+valorSensor=valFotores();
   
   
   http.begin(wifiClient,url);
