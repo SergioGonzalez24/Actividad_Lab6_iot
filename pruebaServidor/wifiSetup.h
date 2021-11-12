@@ -1,19 +1,6 @@
 #include <ESP8266WiFi.h>
 
 void wifiSetup() {
-  // Sustituir con datos de red a conectar
-  /*
-   * REDES GUARDADAS
-   * ------------------------
-   * ssid LaRataPelona
-   * password ibbNfwa9Etppt
-   * ------------------------
-   * ssid Socios_CGH
-   * password ""
-   * -----------------------
-   * ssid abcdefg
-   * password 123456789
-   */
   
   const char* ssid     = "";
   const char* password = "";

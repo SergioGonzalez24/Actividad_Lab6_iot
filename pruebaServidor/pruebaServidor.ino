@@ -62,7 +62,7 @@ if(res==1) {
 }
 
 else if(res==2) {
-  //valorSensor=valHumedad();
+  valorSensor=valHumendad();
   Serial.println("\n");
   Serial.println("******************************");
   Serial.println("valor humedad:\t");
