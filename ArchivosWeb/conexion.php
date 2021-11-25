@@ -1,13 +1,7 @@
 <?php
 
 class conexion {
-    /*
-    const user='id17889621_admin';
-    const password='^K1uZPo]OHt|cNi=';
-    const database='id17889621_servidoriot';
-    const server='localhost';
 
-*/
     const user='root';
     const password='';
     const database='Actividad6';
