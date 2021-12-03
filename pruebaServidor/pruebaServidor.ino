@@ -5,8 +5,8 @@
 #include <ESP8266HTTPClient.h>
 
 //llenar con url de base de datos local
-String ip="10.16.9.195";
-String url="http://"+ip+"/actividad6/recibe.php";
+String ip="192.168.3.42";
+String url="http://"+ip+"/Reto_IOT/recibe.php";
 
 
 String id="tarjeta1";

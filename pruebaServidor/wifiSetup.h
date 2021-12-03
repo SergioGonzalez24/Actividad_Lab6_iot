@@ -2,8 +2,8 @@
 
 void wifiSetup() {
   
-  const char* ssid     = "";
-  const char* password = "";
+  const char* ssid     = "LaRataPelona";
+  const char* password = "ibbNfwa9Etppt";
   byte cont = 0;
   byte max_intentos = 50;
 
